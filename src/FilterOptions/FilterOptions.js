@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 class FilterOptions extends Component {
     render() {
+        const { filterOption } = this.props;
         return (
             <div>
                 <div>
@@ -11,6 +12,8 @@ class FilterOptions extends Component {
                             value='All'
                             id='All'
                             name='filter'
+                            checked={filterOption === 'All'}
+                            onChange={e => this.props.handleFilterChange(e.target.value)}
                         />
                         All
                     </label>
@@ -22,6 +25,8 @@ class FilterOptions extends Component {
                             value='Uploaded'
                             id='Uploaded'
                             name='filter'
+                            checked={filterOption === 'Uploaded'}
+                            onChange={e => this.props.handleFilterChange(e.target.value)}
                         />
                         Uploaded
                     </label>
@@ -33,6 +38,8 @@ class FilterOptions extends Component {
                             value='Synced'
                             id='Synced'
                             name='filter'
+                            checked={filterOption === 'Synced'}
+                            onChange={e => this.props.handleFilterChange(e.target.value)}
                         />
                         Synced
                     </label>
@@ -44,6 +51,8 @@ class FilterOptions extends Component {
                             value='New'
                             id='New'
                             name='filter'
+                            checked={filterOption === 'New'}
+                            onChange={e => this.props.handleFilterChange(e.target.value)}
                         />
                         New
                     </label>

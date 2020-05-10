@@ -3,10 +3,15 @@ import ListItem from '../ListItem/ListItem'
 
 class FilterableList extends Component {
     render() {
+        const { searchTerm, filterOption } = this.props;
+        const list = this.props.files
 
-        // take another look at this method
+            .filter(file => file.name.includes(searchTerm)
+                  && (filterOption === 'All' || file.status === filterOption))
 
-        const list = this.props.files.map((file, key) => <ListItem {...file} key={key}/>)
+            .map((file, key) => <ListItem {...file} key={key} />);
+
+    
         return (
             <div>
                 {list}
